@@ -1,18 +1,21 @@
-<div class="user-container">
-  <div class="user-img">
-    <img src=<%= 'https://icon-library.com/images/user-profile-icon/user-profile-icon-23.jpg' %> >
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src=<%= 'https://icon-library.com/images/user-profile-icon/user-profile-icon-23.jpg' %> >
+    </div>
+  <div class="col">
   <div class="user-data">
     <h2><%= @user.name%></h2>
     <p>Number of posts: <%= @user.posts.size %></p>
+    </div>
   </div>
 </div>
-
-<div class="user-container-2">
-  <div class="user-data-2">
+</div>
+<div class="container">
+<div class="user-pro">
+<div class="bio">
     <h2>Bio</h2>
-    <p class="bio"><%= @user.bio%></p>
-  </div>
+    <p><%= @user.bio%></p>
 </div>
 
 <% @user.recent_posts.each do |post| %>
@@ -22,8 +25,10 @@
       <p>Comment <%= post.comments.size%>,  <span>Likes <%= post.likes_counter%></span></p>
   </div>
 <%end%>
-
+ <div class="btn">
   <button class="button">
       <%= link_to "See all posts", user_posts_path(@user), {:class => "button_class"} %>
   </button>
-
+  </div>
+</div>
+</div>

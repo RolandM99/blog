@@ -1,28 +1,35 @@
-<div class="user-container">
-        <div class="user-img">
+<div class="container">
+  <div class="row">
+   <div class="col">
        <img src=<%= 'https://icon-library.com/images/user-profile-icon/user-profile-icon-23.jpg' %> >
       </div>
+      <div class="col">
+      <div class="user-data">
       <h2><%= @user.name%></h2>
       <p>Number of posts: <%= @user.posts.size %></p>
+     </div>
+     </div>
     </div>
-  </div>
 
-<% @posts.each do |post| %>
-  <div class="user-container">
+    <% @posts.each do |post| %>
+
+  <div class="comment-container">
     <div class="post-data">
      <%= link_to "#{post.title}", user_post_path(@user.id, post.id), class:"post-title" %> 
      <h3><%= post.text%></h3>
-      <h5>Number of comments: <%= post.comments.size %> <span>Number of likes: <%= post.likes_counter %></span></h5>
+      <h6>Number of comments: <%= post.comments.size %> <span>Number of likes: <%= post.likes_counter %></span></h5>
     </div>
   </div>
-  <div class="commentaire">
+  <div class="comment-container">
     <% post.recent_comments.each do |comment| %>
        <p><%= comment.author.name%>: <%= comment.text%></p>
     <%end%>
   </div>
-<%end%>
-<div class="button-div">
+ <%end%>
+ <div class="btn">
   <button class="button">
     Pagination
   </button>
+ </div>
+ </div>
 </div>
