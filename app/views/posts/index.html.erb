@@ -25,11 +25,16 @@
        <p><%= comment.author.name%>: <%= comment.text%></p>
     <%end%>
   </div>
- <%end%>
- <div class="btn">
-  <button class="button">
-    Pagination
-  </button>
+ <%end%> 
+<div class="btn-space">
+   <div class="btn">
+     <%= link_to "Create a Post",  new_user_post_path(@user), {:class => "btn btn-success"} %>
+   </div>
+    <div class="btn">
+     <button class="btn btn-primary">
+       Pagination
+     </button>
+    </div>
  </div>
  </div>
 </div>
