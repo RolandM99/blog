@@ -28,12 +28,7 @@
   margin-top: 20px;
 }
 
-.button {
-  margin-top: 20px;
-  width: 20%;
-}
-
-.btn {
+.btn-space {
   display: flex;
   justify-content: center;
 }
