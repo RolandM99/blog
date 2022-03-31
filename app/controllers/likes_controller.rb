@@ -6,10 +6,9 @@ class LikesController < ApplicationController
     updated_like.update_counter_of_likes
     if updated_like.save
       flash[:notice] = 'Created successfully'
-      redirect_to "/users/#{@post.author_id}/posts/#{@post.id}"
     else
       flash.now[:error] = 'Comment failed'
-      redirect_to "/users/#{@post.author_id}/posts/#{@post.id}"
     end
+    redirect_to "/users/#{@post.author_id}/posts/#{@post.id}"
   end
 end
