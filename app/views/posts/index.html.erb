@@ -19,6 +19,11 @@
      <h3><%= post.text%></h3>
       <h6>Number of comments: <%= post.comments.size %> <span>Number of likes: <%= post.likes_counter %></span></h5>
     </div>
+    <% if can? :destroy, post %>
+    <div class="btn">
+     <%= button_to "Delete Post",  user_post_path(@user.id, post.id), :class => "btn btn-danger", :method => :delete %>
+   </div>
+   <%end%>
   </div>
   <div class="comment-container">
     <% post.recent_comments.each do |comment| %>
