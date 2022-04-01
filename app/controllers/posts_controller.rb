@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  # load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
@@ -6,7 +8,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # @user = @post.author
     @comments = @post.comments
   end
 
@@ -31,6 +32,15 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    post = Post.find(params[:id])
+    authorize! :destroy, post
+    post.destroy
+    redirect_to user_posts_path, notice: 'Post deleted'
+  end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :text)
