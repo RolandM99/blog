@@ -1,0 +1,14 @@
+<div class="container">
+    <h2 class ="title">Create a post</h2>
+    <div class="form-floating">
+    <%= form_with model: @post, url: user_posts_path, scope: :post, html: {class: "post-form-c"} do |form| %>
+        <div class="t-post">
+            <%= form.text_field :title, class:'form-control', placeholder: "Title", required: true %>
+        </div>
+        <div class="text">
+            <%= form.text_area :text, class:'form-control', placeholder: "Type here...", rows: 10, required: true %>
+        </div>
+        <%= form.submit "Post", class: " btn btn-success" %>
+    <% end %>
+    </div>
+</div>

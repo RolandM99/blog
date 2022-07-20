@@ -1,2 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src=<%= 'https://icon-library.com/images/user-profile-icon/user-profile-icon-23.jpg' %> >
+    </div>
+  <div class="col">
+  <div class="user-data">
+    <h2><%= @user.name%></h2>
+    <p>Number of posts: <%= @user.posts.size %></p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container">
+<div class="user-pro">
+<div class="bio">
+    <h2>Bio</h2>
+    <p><%= @user.bio%></p>
+</div>
+
+<% @user.recent_posts.each do |post| %>
+  <div class="comment-container">
+      <h4>Post : <%= post.title%></h4>
+      <p><%= post.text%></p>
+      <p>Comment <%= post.comments.size%>,  <span>Likes <%= post.likes_counter%></span></p>
+  </div>
+<%end%>
+ <div class="btn">
+      <%= link_to "See all posts", user_posts_path(@user), {:class => "btn btn-success"} %>
+  </div>
+</div>
+</div>

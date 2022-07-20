@@ -1,0 +1,28 @@
+.user-container {
+  display: flex;
+}
+
+.user-pro {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: auto;
+}
+
+.post-comment {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -38px;
+}
+
+.form-floating {
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-top: 20px;
+}
+
+.btn {
+  margin-top: 20px;
+}
